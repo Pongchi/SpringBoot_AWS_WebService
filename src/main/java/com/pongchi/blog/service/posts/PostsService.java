@@ -1,10 +1,14 @@
 package com.pongchi.blog.service.posts;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pongchi.blog.domain.posts.Posts;
 import com.pongchi.blog.domain.posts.PostsRepository;
+import com.pongchi.blog.web.dto.PostsListResponseDto;
 import com.pongchi.blog.web.dto.PostsResponseDto;
 import com.pongchi.blog.web.dto.PostsSaveRequestDto;
 import com.pongchi.blog.web.dto.PostsUpdateRequestDto;
@@ -38,5 +42,12 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
