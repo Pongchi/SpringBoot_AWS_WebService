@@ -6,7 +6,6 @@ spring:
         console:
             enabled: true
 
-
 server:
     servlet:
         encoding:
