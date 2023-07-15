@@ -1,7 +1,5 @@
 package com.pongchi.blog.web;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
     
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
