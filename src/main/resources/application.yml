@@ -6,7 +6,12 @@ spring:
         console:
             enabled: true
 
+    profiles:
+        include: oauth
+
 server:
     servlet:
         encoding:
             force-response: true
+
+    use-forward-headers: true
