@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.pongchi.blog.config.auth.LoginUser;
 import com.pongchi.blog.config.auth.dto.SessionUser;
 import com.pongchi.blog.service.posts.PostsService;
 import com.pongchi.blog.web.dto.PostsResponseDto;
@@ -21,10 +22,8 @@ public class IndexController {
     private final HttpSession httpSession;
     
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
