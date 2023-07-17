@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: 유저이름
+    url: 주소
+    password: 비밀번호
+  jpa:
+    hibernate:
+      ddl-auto: none
