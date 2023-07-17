@@ -12,6 +12,7 @@ spring:
     profiles:
         include: 
             - oauth
+            - real
     session:
         store-type: jdbc
 
