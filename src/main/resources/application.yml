@@ -11,5 +11,4 @@ spring:
     store-type: jdbc
   profiles:
     include: 
-      - real
       - oauth
