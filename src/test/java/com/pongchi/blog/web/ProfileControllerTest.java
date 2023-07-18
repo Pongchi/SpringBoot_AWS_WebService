@@ -24,7 +24,7 @@ public class ProfileControllerTest {
 
     @Test
     public void profile_is_not_need_authorization() throws Exception {
-        String expected = "default";
+        String expected = "real";
 
         ResponseEntity<String> response = restTemplate.getForEntity("/profile", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
