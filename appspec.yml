@@ -3,7 +3,7 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/app/step2/zip/
-    overwirtes: yes
+    overwrites: yes
 
 permissions:
   - object: /
